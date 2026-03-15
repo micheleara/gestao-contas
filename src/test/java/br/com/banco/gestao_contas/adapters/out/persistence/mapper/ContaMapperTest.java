@@ -37,14 +37,14 @@ class ContaMapperTest {
     @Test
     void testToEntity() {
         LocalDateTime now = LocalDateTime.now();
-        Conta domain = new Conta("222", "Juca", StatusConta.INATIVA, new BigDecimal("200"), now);
+        Conta domain = new Conta("222", "Juca", StatusConta.CANCELADA, new BigDecimal("200"), now);
 
         ContaEntity entity = mapper.toEntity(domain);
 
         assertNotNull(entity);
         assertEquals("222", entity.getNumConta());
         assertEquals("Juca", entity.getNomeCliente());
-        assertEquals(StatusConta.INATIVA, entity.getStatus());
+        assertEquals(StatusConta.CANCELADA, entity.getStatus());
         assertEquals(new BigDecimal("200"), entity.getSaldo());
         assertEquals(now, entity.getAtualizadoEm());
     }

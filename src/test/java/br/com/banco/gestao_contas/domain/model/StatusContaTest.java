@@ -10,8 +10,8 @@ class StatusContaTest {
         StatusConta[] values = StatusConta.values();
         assertEquals(4, values.length);
         assertEquals(StatusConta.ATIVA, StatusConta.valueOf("ATIVA"));
-        assertEquals(StatusConta.INATIVA, StatusConta.valueOf("INATIVA"));
-        assertEquals(StatusConta.BLOQUEADA, StatusConta.valueOf("BLOQUEADA"));
-        assertEquals(StatusConta.ENCERRADA, StatusConta.valueOf("ENCERRADA"));
+        assertEquals(StatusConta.CANCELADA, StatusConta.valueOf("CANCELADA"));
+        assertEquals(StatusConta.BLOQUEIO_JUDICIAL, StatusConta.valueOf("BLOQUEIO_JUDICIAL"));
+        assertEquals(StatusConta.INDISPONIVEL, StatusConta.valueOf("INDISPONIVEL"));
     }
 }

@@ -1,3 +1,7 @@
+
+server:
+  port: 8081
+
 spring:
   config:
     import: optional:file:.env[.properties]
@@ -25,3 +29,13 @@ spring:
     enabled: true
     locations: classpath:db/migration
     baseline-on-migrate: true
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: sistema-contas-encargos
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
