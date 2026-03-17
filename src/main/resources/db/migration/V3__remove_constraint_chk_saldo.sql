@@ -1,0 +1,1 @@
+ALTER TABLE contas DROP CONSTRAINT IF EXISTS chk_saldo;

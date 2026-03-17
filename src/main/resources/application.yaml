@@ -39,3 +39,20 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+kafka:
+  topics:
+    consulta-conta-request: encargos.conta.consulta.request
+    consulta-conta-response: encargos.conta.consulta.response
+    consulta-status-request: encargos.conta.consulta-status
+    consulta-status-response: encargos.conta.resposta-status
+    atualizar-saldo: encargos.conta.atualizar-saldo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
