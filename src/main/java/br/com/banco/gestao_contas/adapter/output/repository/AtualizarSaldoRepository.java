@@ -16,20 +16,15 @@ public class AtualizarSaldoRepository implements AtualizarSaldoOutputPort {
     private EntityManager em;
 
     @Override
-    public void atualizar(String numeroConta, String tipoLancamento, BigDecimal valor) {
-
+    public void atualizar(String numeroConta, BigDecimal valorFinal) {
         em.createNativeQuery(
                 "SELECT saldo FROM contas WHERE num_conta = :conta FOR UPDATE")
                 .setParameter("conta", numeroConta)
                 .getSingleResult();
 
-        BigDecimal valorOperacao = tipoLancamento.equals("DEBITO")
-                ? valor.negate()
-                : valor;
-
         em.createNativeQuery(
                 "UPDATE contas SET saldo = saldo + :valor, atualizado_em = now() WHERE num_conta = :conta")
-                .setParameter("valor", valorOperacao)
+                .setParameter("valor", valorFinal)
                 .setParameter("conta", numeroConta)
                 .executeUpdate();
     }

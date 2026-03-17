@@ -1,8 +1,8 @@
-package br.com.banco.gestao_contas.adapters.out.persistence.mapper;
+package br.com.banco.gestao_contas.adapter.output.mapper;
 
-import br.com.banco.gestao_contas.adapters.out.persistence.entity.ContaEntity;
-import br.com.banco.gestao_contas.domain.model.Conta;
-import br.com.banco.gestao_contas.domain.model.StatusConta;
+import br.com.banco.gestao_contas.adapter.output.repository.entity.ContaEntity;
+import br.com.banco.gestao_contas.core.domain.model.Conta;
+import br.com.banco.gestao_contas.core.domain.model.StatusConta;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -15,7 +15,7 @@ class ContaMapperTest {
     private final ContaMapper mapper = new ContaMapper();
 
     @Test
-    void testToDomain() {
+    void toDomain_deveMapearTodosCampos() {
         LocalDateTime now = LocalDateTime.now();
         ContaEntity entity = new ContaEntity("111", "Maju", StatusConta.ATIVA, new BigDecimal("100"), now);
 
@@ -30,12 +30,12 @@ class ContaMapperTest {
     }
 
     @Test
-    void testToDomainNull() {
+    void toDomain_nulo_deveRetornarNulo() {
         assertNull(mapper.toDomain(null));
     }
 
     @Test
-    void testToEntity() {
+    void toEntity_deveMapearTodosCampos() {
         LocalDateTime now = LocalDateTime.now();
         Conta domain = new Conta("222", "Juca", StatusConta.CANCELADA, new BigDecimal("200"), now);
 
@@ -50,7 +50,7 @@ class ContaMapperTest {
     }
 
     @Test
-    void testToEntityNull() {
+    void toEntity_nulo_deveRetornarNulo() {
         assertNull(mapper.toEntity(null));
     }
 }

@@ -4,5 +4,5 @@ import java.math.BigDecimal;
 
 public interface AtualizarSaldoOutputPort {
 
-    void atualizar(String numeroConta, String tipoLancamento, BigDecimal valor);
+    void atualizar(String numeroConta, BigDecimal valorFinal);
 }

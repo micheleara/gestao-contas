@@ -15,6 +15,7 @@ public class AtualizarSaldoUseCase implements AtualizarSaldoInputPort {
 
     @Override
     public void atualizar(String numeroConta, String tipoLancamento, BigDecimal valor) {
-        atualizarSaldoOutputPort.atualizar(numeroConta, tipoLancamento, valor);
+        BigDecimal valorFinal = "DEBITO".equals(tipoLancamento) ? valor.negate() : valor;
+        atualizarSaldoOutputPort.atualizar(numeroConta, valorFinal);
     }
 }

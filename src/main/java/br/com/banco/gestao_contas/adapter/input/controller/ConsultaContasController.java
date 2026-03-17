@@ -12,11 +12,11 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/consulta-contas")
-public class TesteConsultaContasController {
+public class ConsultaContasController {
 
     private final ConsultaContasInputPort consultaContasInputPort;
 
-    public TesteConsultaContasController(ConsultaContasInputPort consultaContasInputPort) {
+    public ConsultaContasController(ConsultaContasInputPort consultaContasInputPort) {
         this.consultaContasInputPort = consultaContasInputPort;
     }
 

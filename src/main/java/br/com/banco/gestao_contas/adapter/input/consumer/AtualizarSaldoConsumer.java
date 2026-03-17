@@ -24,6 +24,7 @@ public class AtualizarSaldoConsumer {
 
     @KafkaListener(topics = "${kafka.topics.atualizar-saldo}")
     public void onAtualizarSaldo(String mensagem) {
+        log.info("Mensagem recebida no tópico atualizar-saldo: {}", mensagem);
         try {
             EventoLancamento evento = objectMapper.readValue(mensagem, EventoLancamento.class);
             atualizarSaldoInputPort.atualizar(

@@ -1,12 +1,13 @@
-package br.com.banco.gestao_contas.domain.model;
+package br.com.banco.gestao_contas.core.domain.model;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class StatusContaTest {
 
     @Test
-    void testValues() {
+    void devePossuirQuatroValores() {
         StatusConta[] values = StatusConta.values();
         assertEquals(4, values.length);
         assertEquals(StatusConta.ATIVA, StatusConta.valueOf("ATIVA"));
