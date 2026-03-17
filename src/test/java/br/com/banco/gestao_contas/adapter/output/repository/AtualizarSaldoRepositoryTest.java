@@ -33,11 +33,11 @@ class AtualizarSaldoRepositoryTest {
         repository = new AtualizarSaldoRepository();
         ReflectionTestUtils.setField(repository, "em", em);
 
-        when(em.createNativeQuery(contains("SELECT"))).thenReturn(selectQuery);
+        when(em.createNativeQuery(contains("FOR UPDATE"))).thenReturn(selectQuery);
         when(selectQuery.setParameter(anyString(), any())).thenReturn(selectQuery);
         when(selectQuery.getSingleResult()).thenReturn(new BigDecimal("1000.00"));
 
-        when(em.createNativeQuery(contains("UPDATE"))).thenReturn(updateQuery);
+        when(em.createNativeQuery(contains("SET saldo"))).thenReturn(updateQuery);
         when(updateQuery.setParameter(anyString(), any())).thenReturn(updateQuery);
         when(updateQuery.executeUpdate()).thenReturn(1);
     }
